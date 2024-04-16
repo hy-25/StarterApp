@@ -9,22 +9,12 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {
-  GiphyContent,
-  GiphyGridView,
-  GiphyMedia,
-  GiphyMediaView,
-  GiphySDK,
-  GiphyMediaType,
-  GiphyThemePreset,
-} from '@giphy/react-native-sdk';
+import {GiphySDK} from '@giphy/react-native-sdk';
 import {GIPHY_API_KEY} from '../../tokens';
 import {Button} from '../components/Button';
 
 GiphySDK.configure({
   apiKey: GIPHY_API_KEY,
-
-  // Android SDK key
 });
 
 export enum ContainerType {
@@ -42,8 +32,17 @@ export const HomScreen = () => {
     }
   };
 
+  const omSwitchPress = (val: boolean) => {
+    setIsDarkMode(val => !val);
+  };
+
   const themeBg: StyleProp<ViewStyle> = {
     backgroundColor: isDarkMode ? 'black' : 'white',
+  };
+
+  const textInputDynamicStyle = {
+    borderBottomColor: isDarkMode ? 'white' : 'grey',
+    color: isDarkMode ? 'white' : 'grey',
   };
 
   return (
@@ -51,45 +50,44 @@ export const HomScreen = () => {
       <View
         style={{
           flexDirection: 'row',
-          justifyContent: 'flex-end',
           marginHorizontal: 16,
         }}>
+        <Text
+          style={{
+            color: isDarkMode ? 'white' : 'black',
+            fontWeight: 'bold',
+            fontSize: 28,
+            flex: 1,
+          }}>
+          GIPHY APP
+        </Text>
         <Switch
           trackColor={{false: 'black', true: 'white'}}
           value={isDarkMode}
           thumbColor={'#f5dd4b'}
-          onValueChange={val => {
-            setIsDarkMode(val => !val);
-          }}></Switch>
+          onValueChange={omSwitchPress}></Switch>
       </View>
       <View style={{flexDirection: 'row', justifyContent: 'center'}}>
         <Button
-          title="Show Trending"
+          title="TRENDING"
           isSelected={containerType === ContainerType.Trending}
           type={ContainerType.Trending}
           onButtonPress={onButtonPress}></Button>
         <Button
           type={ContainerType.Search}
-          title="Search a giphy"
+          title="SEARCH"
           isSelected={containerType === ContainerType.Search}
           onButtonPress={onButtonPress}></Button>
       </View>
 
       {containerType === ContainerType.Search && (
         <TextInput
-          style={{
-            fontSize: 24,
-            fontWeight: 'bold',
-            color: isDarkMode ? 'white' : 'grey',
-            marginVertical: 8,
-            marginHorizontal: 24,
-            borderBottomWidth: 2,
-            borderBottomColor: isDarkMode ? 'white' : 'grey',
-          }}
+          style={[styles.textInputBaseStyle, textInputDynamicStyle]}
           autoFocus
           onChangeText={setSearchQuery}
           placeholder="Search..."
           value={searchQuery}
+          placeholderTextColor={isDarkMode ? 'white' : 'grey'}
         />
       )}
       {/* <GiphyGridView
@@ -114,5 +112,13 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 12,
+  },
+
+  textInputBaseStyle: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    marginVertical: 8,
+    marginHorizontal: 24,
+    borderBottomWidth: 2,
   },
 });

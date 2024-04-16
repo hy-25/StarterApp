@@ -1200,6 +1200,19 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.57.0.tgz#a5417ae8427873f1dd08b70b3574b453e67b5f7f"
   integrity sha512-Ys+3g2TaW7gADOJzPt83SJtCDhMjndcDMFVQ/Tj9iA1BfJzFKD9mAUXT3OenpuPHbI6P/myECxRJrofUsDx/5g==
 
+"@giphy/js-types@^4.4.0":
+  version "4.4.0"
+  resolved "https://registry.yarnpkg.com/@giphy/js-types/-/js-types-4.4.0.tgz#4f491a408293e52d77aa4d6b38d20f6b2828723a"
+  integrity sha512-W9G6crS2oqTn7g0RpvYu1l/sna4LnivRTk25jmxdzujOFb9kvQ+VFM/v9RPYV2GIBnzT/maW/EwjFIba9jkflA==
+
+"@giphy/react-native-sdk@^3.2.4":
+  version "3.2.4"
+  resolved "https://registry.yarnpkg.com/@giphy/react-native-sdk/-/react-native-sdk-3.2.4.tgz#53a5df2b40e33a8076124aa3b37d09c35869387d"
+  integrity sha512-m1eqpOrcspyWzWdSFa6dFCVUZXOyjDDMF7kzG3jMecZJ9Us/2GHunXGI7bRbN5xuyKssha0/uWkSHi9rD2jUvQ==
+  dependencies:
+    "@giphy/js-types" "^4.4.0"
+    type-fest "^4.5.0"
+
 "@hapi/hoek@^9.0.0", "@hapi/hoek@^9.3.0":
   version "9.3.0"
   resolved "https://registry.yarnpkg.com/@hapi/hoek/-/hoek-9.3.0.tgz#8368869dcb735be2e7f5cb7647de78e167a251fb"
@@ -6333,6 +6346,11 @@ type-fest@^0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-0.7.1.tgz#8dda65feaf03ed78f0a3f9678f1869147f7c5c48"
   integrity sha512-Ne2YiiGN8bmrmJJEuTWTLJR32nh/JdL1+PSicowtNb0WFpn59GK8/lfD61bVtzguz7b3PBt74nxpv/Pw5po5Rg==
+
+type-fest@^4.5.0:
+  version "4.15.0"
+  resolved "https://registry.yarnpkg.com/type-fest/-/type-fest-4.15.0.tgz#21da206b89c15774cc718c4f2d693e13a1a14a43"
+  integrity sha512-tB9lu0pQpX5KJq54g+oHOLumOx+pMep4RaM6liXh2PKmVRFF+/vAtUP0ZaJ0kOySfVNjF6doBWPHhBhISKdlIA==
 
 typed-array-buffer@^1.0.2:
   version "1.0.2"

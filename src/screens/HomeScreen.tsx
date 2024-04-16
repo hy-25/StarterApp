@@ -9,7 +9,13 @@ import {
   View,
   ViewStyle,
 } from 'react-native';
-import {GiphySDK} from '@giphy/react-native-sdk';
+import {
+  GiphySDK,
+  GiphyGridView,
+  GiphyThemePreset,
+  GiphyContent,
+  GiphyMediaType,
+} from '@giphy/react-native-sdk';
 import {GIPHY_API_KEY} from '../../tokens';
 import {Button} from '../components/Button';
 
@@ -90,7 +96,7 @@ export const HomScreen = () => {
           placeholderTextColor={isDarkMode ? 'white' : 'grey'}
         />
       )}
-      {/* <GiphyGridView
+      <GiphyGridView
         content={
           containerType === ContainerType.Trending
             ? GiphyContent.trending({
@@ -103,7 +109,7 @@ export const HomScreen = () => {
         cellPadding={3}
         style={{height: 500, marginTop: 24}}
         theme={isDarkMode ? GiphyThemePreset.Dark : GiphyThemePreset.Light}
-      /> */}
+      />
     </View>
   );
 };
